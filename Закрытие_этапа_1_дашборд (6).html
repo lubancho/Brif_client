@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Закрытие этапа 1</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"><style>
+:root{--bg:#f6f4ff;--bg2:#ebe6ff;--side:#4536a8;--glass:#ffffff;--glass2:#faf8ff;--bd:#e3ddfb;--bd2:#b3a5ff;
+--fg:#1e1745;--muted:#5d5590;--dim:#8a83b5;--vio:#8b75ff;--lil:#6a52ee;--ok:#1fae5b;--bad:#ec4a5f;--warn:#e9a800}
+aside{--fg:#fff;--muted:#e1dcff;--dim:#c9c2f5;--glass:rgba(255,255,255,.1);--glass2:rgba(255,255,255,.16);--bd:rgba(255,255,255,.2);--bd2:rgba(255,255,255,.5);--lil:#e0d9ff;color:#fff}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--fg);font:15px/1.6 Manrope,Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;
+background:radial-gradient(900px 500px at 95% -10%,rgba(165,148,255,.28),transparent 60%),radial-gradient(700px 500px at 15% 115%,rgba(165,148,255,.18),transparent 60%),linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%);background-attachment:fixed}
+svg{stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.app{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;height:100vh;padding:28px 16px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--bd);background:var(--side);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px;padding:0 10px 28px}
+.logo{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;border:1.5px solid var(--lil);color:var(--lil);font-weight:800;font-size:13px}
+.brand .t{font-weight:800;font-size:17px;letter-spacing:-.01em;line-height:1.2}
+.brand .k{font-size:12px;color:var(--muted)}
+.nav{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border-radius:12px;cursor:pointer;color:var(--muted);font-weight:600;font-size:14.5px;white-space:nowrap;border:1px solid transparent;transition:.15s}
+.nav .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;border:1px solid var(--bd);background:var(--glass);flex:none}
+.nav svg{width:16px;height:16px;stroke-width:1.8}
+.nav .n{margin-left:auto;font-size:12px;font-weight:700;min-width:22px;text-align:center;padding:1px 7px;border-radius:999px;background:var(--glass2);color:var(--fg)}
+.nav .n.bad{background:#ff7d8b;color:#fff} .nav .n.ok{background:#4ade80;color:#073b1d}
+.nav:hover{color:var(--fg);background:var(--glass)}
+.nav.on{color:var(--fg);background:linear-gradient(90deg,rgba(165,148,255,.22),rgba(165,148,255,.04));border-color:var(--bd2)}
+.nav.on .ic{border-color:var(--bd2);color:var(--lil);box-shadow:0 0 18px rgba(165,148,255,.35)}
+.nav:focus-visible{outline:2px solid var(--lil);outline-offset:2px}
+.foot{margin-top:auto;padding:14px 12px 0;font-size:12px;color:var(--dim);border-top:1px solid var(--bd);display:flex;align-items:center;gap:8px}
+.live{width:8px;height:8px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 4px rgba(251,191,36,.18)}
+main{padding:44px 52px 72px;max-width:1120px;width:100%}
+.view{display:none;animation:fade .3s ease} .view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view{animation:none}}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:12px}
+h1{font-size:48px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 16px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#9d89ff,#6a52ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:#2e2660;max-width:44rem;margin:0 0 10px}
+.lead b{color:var(--lil)}
+.rule{width:64px;height:2px;background:var(--vio);border-radius:2px;margin:22px 0 30px}
+.glass{background:var(--glass);border:1px solid var(--bd);border-radius:18px;backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(70,50,170,.08),0 1px 2px rgba(70,50,170,.06)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.stat{all:unset;box-sizing:border-box;display:block;padding:20px}
+button.stat{cursor:pointer;transition:.15s} button.stat:hover{border-color:var(--bd2);background:var(--glass2)}
+button.stat:focus-visible{outline:2px solid var(--lil)}
+.stat .l{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+.stat .v{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:10px 0 2px;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:15px;font-weight:600;color:var(--muted);margin-left:4px;letter-spacing:0}
+.stat .s{font-size:12.5px;color:var(--dim)}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.v.bad{color:var(--bad)} .v.ok{color:var(--ok)}
+.contract{padding:22px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:end}
+.contract .l{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.contract .v{font-size:30px;font-weight:800;margin:8px 0 10px}
+.contract .v small{font-size:15px;color:var(--muted);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:96px}
+.bars span{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#bcaeff,#9a86ff);opacity:.95}
+.bars span.partial{background:linear-gradient(180deg,#fcd34d,#b7791f)} .bars span.open{background:linear-gradient(180deg,#ff8a95,#c2334a)}
+.cta{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;margin-top:14px;cursor:pointer;font-weight:700}
+.cta:hover{border-color:var(--bd2)} .cta span{color:var(--lil)}
+.stat.glass,.cta.glass{background:var(--glass);border:1px solid var(--bd);border-radius:18px;box-shadow:0 10px 30px rgba(70,50,170,.08),0 1px 2px rgba(70,50,170,.06)}
+button.stat.glass:hover,.cta.glass:hover{border-color:var(--bd2);background:var(--glass2)}
+.contract{padding:22px 24px;display:block}
+.chead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.contract .v{font-size:22px;margin:0}
+.crow{display:grid;grid-template-columns:minmax(0,1fr) 110px 120px;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--bd);font-size:14.5px}
+.crow .sum{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted)}
+.crow .st{justify-self:end}
+.crow.open .st{background:#ff7d8b;color:#fff} .crow.partial .st{background:#fcd34d;color:#4a3500} .crow.done .st{background:#4ade80;color:#073b1d}
+@media (max-width:600px){.crow{grid-template-columns:minmax(0,1fr) auto}.crow .sum{display:none}}
+/* summary */
+.article{max-width:52rem}
+.key{padding:24px 26px;margin-bottom:34px}
+.key .l{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lil);margin-bottom:12px}
+.key ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.key li{display:flex;gap:12px;font-size:16px;color:#2e2660}
+.key li .dot{margin-top:9px}
+.article h2{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 8px;display:flex;align-items:center;gap:10px}
+.article h2 .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;border:1px solid var(--bd2);color:var(--lil);background:rgba(165,148,255,.1)}
+.article h2 svg{width:15px;height:15px;stroke-width:2}
+.article p{margin:0 0 10px;color:#2e2660}
+.article p b{color:var(--fg)}
+.article ul.plain{margin:0 0 10px;padding-left:20px;color:#2e2660} .article ul.plain li{margin:4px 0}
+.article .hl{color:var(--lil);font-weight:700}
+/* tasks */
+.item{padding:20px 24px;margin-bottom:14px;position:relative;overflow:hidden}
+.item::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px}
+.item.open::before{background:var(--bad)} .item.partial::before{background:var(--warn)} .item.done::before{background:var(--ok)}
+.item h3{font-size:18px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.st{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.open .st{background:#ff7d8b;color:#fff} .partial .st{background:#fcd34d;color:#4a3500} .done .st{background:#4ade80;color:#073b1d}
+dl{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:8px 18px;margin:0}
+dt{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+dd{margin:0;color:#2e2660}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{text-decoration:none;color:var(--lil);font-weight:700;font-size:13px;border:1px solid var(--bd2);border-radius:10px;padding:4px 12px;background:rgba(165,148,255,.08);transition:.15s}
+.chip:hover{background:var(--lil);color:#fff}
+/* folders */
+.folders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.folder{padding:20px 22px}
+.folder h3{margin:0 0 10px;font-size:16px;font-weight:800;display:flex;align-items:center;gap:10px}
+.folder h3 a{color:var(--fg);text-decoration:none} .folder h3 a:hover{color:var(--lil)}
+.folder .num{font-size:12px;font-weight:800;color:var(--lil);border:1px solid var(--bd2);border-radius:8px;padding:2px 8px}
+.files{list-style:none;margin:0;padding:0}
+.files li{border-top:1px solid var(--bd)}
+.files a{display:flex;gap:10px;padding:9px 2px;color:#2e2660;text-decoration:none;font-size:14px}
+.files a:hover{color:var(--lil)}
+.files .d{margin-left:auto;color:var(--dim);font-size:12px;white-space:nowrap}
+@media (max-width:980px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.contract{grid-template-columns:1fr}}
+@media (max-width:820px){.app{grid-template-columns:1fr}aside{position:sticky;height:auto;flex-direction:row;flex-wrap:wrap;padding:10px;z-index:3;border-right:0;border-bottom:1px solid var(--bd)}.brand,.foot{display:none}.nav{width:auto;padding:6px 10px}.nav .ic{display:none}main{padding:26px 16px 56px}h1{font-size:34px}.folders{grid-template-columns:1fr}dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:10px}}
+</style></head><body>
+<div class="app">
+<aside>
+  <div class="brand"><div class="logo">K1</div><div><div class="t">Этап 1</div><div class="k">[КОМПАНИЯ_1] × Salto</div></div></div>
+  <button class="nav" data-v="home"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Главная</button>
+  <button class="nav" data-v="summary"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>Резюме</button>
+  <button class="nav" data-v="open"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg></span>Открытые задачи<span class="n bad" id="n-open"></span></button>
+  <button class="nav" data-v="done"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span>Закрытые задачи<span class="n ok" id="n-done"></span></button>
+  <button class="nav" data-v="folders"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>Папки проекта</button>
+  <div class="foot"><span class="live"></span>Ожидание клиента · 18.10</div>
+</aside>
+<main>
+<section class="view" id="v-home">
+  <div class="eyebrow"><span class="dot" style="background:var(--warn)"></span>Договор CL-106/2026 · срез 18.10</div>
+  <h1>Закрытие <em>этапа 1</em></h1>
+  <p class="lead">Работы выполнены и оплачены. Закрытие держат <b>два действия клиента</b> — папка для материалов и 3 договора для теста навыка.</p>
+  <div class="rule"></div>
+  <div class="stats">
+    <button class="stat glass" data-v="open"><div class="l"><span class="dot" style="background:var(--bad)"></span>Открытые задачи</div><div class="v bad" id="t-open"></div><div class="s">все за клиентом</div></button>
+    <button class="stat glass" data-v="done"><div class="l"><span class="dot" style="background:var(--ok)"></span>Закрытые задачи</div><div class="v ok" id="t-done"></div><div class="s">готовы к проверке</div></button>
+    <div class="stat glass"><div class="l"><span class="dot" style="background:var(--vio)"></span>Полученная оплата</div><div class="v" id="t-paid" style="font-size:30px;margin-top:16px"></div><div class="s">29.07 · 100%</div></div>
+    <div class="stat glass"><div class="l"><span class="dot" style="background:var(--warn)"></span>Ожидание клиента</div><div class="v" id="t-wait"></div><div class="s">с 30.09</div></div>
+  </div>
+  <div class="contract glass">
+    <div class="chead"><div class="l">Выполнение договора</div><div class="v" id="t-contract"></div></div>
+    <div class="clist" id="t-list"></div>
+  </div>
+  <button class="cta glass" data-v="summary">Резюме по проекту <span>Открыть →</span></button>
+</section>
+
+<section class="view" id="v-summary">
+  <div class="article">
+    <div class="eyebrow">Резюме по проекту · 18.10.2026</div>
+    <h1 style="font-size:40px">Состояние <em>проекта</em></h1>
+    <div class="key glass">
+      <div class="l">Ключевое</div>
+      <ul>
+        <li><span class="dot" style="background:var(--ok)"></span><span>Работы по договору выполнены, <b>80&nbsp;000&nbsp;₽</b> получены полностью 29.07.</span></li>
+        <li><span class="dot" style="background:var(--bad)"></span><span>Закрытие держат две задачи клиента: папка для материалов и 3 договора для теста навыка. Ответа нет <b>18 дней</b>.</span></li>
+        <li><span class="dot" style="background:var(--vio)"></span><span>План: финальный запрос — 19.10, акт — 26.10, приёмка — 02.11.</span></li>
+        <li><span class="dot" style="background:var(--warn)"></span><span>При молчании клиента после 23.10 — акт по варианту Б, без полного теста навыка.</span></li>
+        <li><span class="dot" style="background:var(--lil)"></span><span>Этап 2 подготовлен: бриф готов, созвон с учредителями — 27–28.10.</span></li>
+      </ul>
+    </div>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>О проекте</h2>
+    <p>Клиент — группа компаний в строительстве и недвижимости из Самары: жилые комплексы, земельные участки, сделки с имущественными комплексами, долями и акциями. Стороной договора выступает ИП [ФАМИЛИЯ_1] Диана, решения принимают учредители Диана и Юрий, оргвопросы ведёт Климентий. Исполнитель — Дмитрий (Salto), самозанятый.</p>
+    <p>По договору <b>CL-106/2026 от 29.07.2026</b> на 80&nbsp;000&nbsp;₽ Исполнитель внедряет Claude в юридический блок: подключает Claude Team на 5 человек с выделенным VPN, проводит до 4 обучающих встреч, пишет Правила работы с ИИ, проектирует один юридический процесс, делает к нему чек-лист и навык, тестирует навык на 3 документах клиента и передаёт все материалы в хранилище клиента.</p>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>Ход проекта</h2>
+    <p>Договор подписан и оплачен 29.07. Старт затянулся на стороне клиента: подходящий домен .com купили только 11.08, а с 26.08 по 10.09 регистратор держал его заблокированным, и сотрудники не могли войти в Claude. Пока шла разблокировка, 28.08 выбрали приоритетный процесс — проверку договоров и точечные правки по редакции контрагента: именно на круг правок у юристов уходит от недели до месяца.</p>
+    <p>После разблокировки прошли три обучающие встречи — <b>14.09, 17.09 и 25.09</b>. 30.09 клиенту отправлены навык (с правилом минимальных правок по замечанию Ольги), чек-лист и Правила работы с ИИ. 02.10 сверх договора отправлены инструкция по подключению Gmail и Диска и навык разбора переписки.</p>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17v.5"/></svg></span>Что не закрыто и почему</h2>
+    <p>Две задачи зависят только от клиента. <b>Тест навыка на 3 документах</b> не проведён — Ольга не прислала договоры. <b>Материалы и записи встреч</b> не переданы — клиент не дал папку для загрузки. Оба запроса отправлены 30.09, напоминания — 01.10, 03.10, 05.10 и 07.10; 05.10 Клим пообещал прислать, но ответа так и нет.</p>
+    <p>По договору это обязанности клиента (п. 3.2.5 и 3.2.8). Срок Исполнителя продлевается на всё время ожидания (п. 5.2), поэтому просрочки у Исполнителя нет.</p>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span>Деньги</h2>
+    <p>Оплата по договору — 80&nbsp;000&nbsp;₽ — получена 29.07, чек НПД выдан в тот же день. Подписку Claude Team клиент оплачивает сам через посредника: 14&nbsp;832&nbsp;₽ 21.08 и 14&nbsp;927&nbsp;₽ 22.09. Следующее списание — около <span class="hl">21.10</span>, сумму нужно прислать клиенту 20.10. После приёмки добавляется VPN — 1&nbsp;500&nbsp;₽ в месяц. Открытым остаётся вопрос закрывающих документов по подписке для бухгалтерии клиента.</p>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>План закрытия</h2>
+    <ul class="plain">
+      <li><b>19.10</b> — своя папка на Диске с материалами и записями, финальный запрос клиенту со сроком до 23.10.</li>
+      <li><b>26.10</b> — акт и отчёт по e-mail: вариант А, если документы пришли, вариант Б — если нет.</li>
+      <li><b>02.11</b> — приёмка: подписанный акт или 5 рабочих дней без замечаний (п. 6.4).</li>
+      <li><b>до 10.11</b> — передача клиенту прав администратора Claude Team и рекомендация сменить пароли почт.</li>
+    </ul>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17v.5"/></svg></span>Риски</h2>
+    <ul class="plain">
+      <li>Молчание клиента после 23.10 — акт по варианту Б, клиент может прислать замечания по тесту навыка.</li>
+      <li>Пароли почт клиента передавались в Telegram открытым текстом.</li>
+      <li>Правила работы с ИИ переданы позже, чем юристы начали работать с документами.</li>
+      <li>Обещанная 09.09 компенсация простоя подписки ещё не предоставлена — её стоит включить в этап 2.</li>
+    </ul>
+
+    <h2><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>Этап 2</h2>
+    <p>На первых созвонах 21.07 и 23.07 договорились, что после запуска пойдут навыки по направлениям юрблока — проверка рекламы по закону о рекламе, сделки Ольги, клиентская работа, — перевод обучающих материалов компании в навыки, затем маркетинговый, управленческий и земельный блоки. 25.09 к этому добавилось подключение Gmail для всех.</p>
+    <p>Подготовлены два варианта: <b>фиксированный блок ≈&nbsp;72&nbsp;500&nbsp;₽</b> или <b>сопровождение на квартал</b> с целью сократить круг правок по договорам. Созвон с учредителями для выбора — 27–28.10.</p>
+  </div>
+</section>
+
+<section class="view" id="v-open"><div class="eyebrow">Задачи · за клиентом</div><h1 style="font-size:40px">Открытые <em>задачи</em></h1><div class="rule"></div><div id="list-open"></div></section>
+<section class="view" id="v-done"><div class="eyebrow">Задачи · готово</div><h1 style="font-size:40px">Закрытые <em>задачи</em></h1><div class="rule"></div><div id="list-done"></div></section>
+<section class="view" id="v-folders"><div class="eyebrow">Google Диск · 00–06</div><h1 style="font-size:40px">Папки <em>проекта</em></h1><div class="rule"></div><div class="folders" id="folders"></div></section>
+</main>
+</div><script>
+const D = 'https://docs.google.com/document/d/', F = 'https://drive.google.com/file/d/', P = 'https://drive.google.com/drive/folders/';
+
+const ITEMS = [
+  {block:'open', state:'open', title:'Тест навыка на 3 документах',
+   what:'Отсутствие 3 договоров Ольги для проверки навыка',
+   why:'Молчание клиента: запрос 30.09, напоминания 01.10, 05.10, 07.10',
+   when:'Повторный запрос — 19.10, срок — 23.10',
+   where:[['Письмо 1', D+'1VFFfHs0hwIZ0tkKKHE3UbRLI21Qvk5yQGJSJoukRGN8/edit'],['Протокол проверки', F+'1SpJidNYwGhXhHpYAXriTxxw1VlbyjnBx/view']]},
+  {block:'open', state:'open', title:'Передача материалов клиенту',
+   what:'Отсутствие папки клиента для загрузки материалов',
+   why:'Молчание клиента: запрос 30.09, напоминания 03.10, 05.10, 07.10',
+   when:'Своя папка — 19.10, подтверждение клиента — до 23.10',
+   where:[['План закрытия', D+'1pkItFkEeKT7kcERDMv6u3M4Zvb2WkCd-lU7swA0DJCM/edit'],['Письмо 1', D+'1VFFfHs0hwIZ0tkKKHE3UbRLI21Qvk5yQGJSJoukRGN8/edit']]},
+  {block:'open', state:'partial', title:'Передача записей встреч',
+   what:'Передача только записи 17.09 из трёх',
+   why:'Отсутствие папки клиента',
+   when:'Загрузка вместе с материалами — 19.10',
+   where:[['Карта проекта', D+'1FWzUc_lDEPYbUVbCo2cw9L1h8BoqbQNrtLLv5U_BIrg/edit']]},
+  {block:'done', state:'done', title:'Структура папок проекта',
+   what:'7 папок 00–06, единые имена файлов, описание у каждого',
+   why:'Навигация без открытия файлов — для ИИ и человека',
+   when:'18.10',
+   where:[['Карта проекта', D+'1FWzUc_lDEPYbUVbCo2cw9L1h8BoqbQNrtLLv5U_BIrg/edit'],['Папка на Диске', P+'1zEIP6xrk_soj3-8yigmjggveDZ-vJOzZ']]},
+  {block:'done', state:'done', title:'Пакет закрытия этапа 1',
+   what:'Акт (варианты А и Б), отчёт, письма клиенту, план закрытия',
+   why:'Закрытие договора CL-106/2026',
+   when:'Отправка акта — 26.10, приёмка — 02.11',
+   where:[['Акт', D+'1LTjJabeLfi9QSJFlfGJc6okmsYWfUzpMF_X0WbrNduk/edit'],['Отчёт', D+'1qVASZQ233EccAvt8fPbmJeXrm9_7WWx4xj0puWTIvcQ/edit'],['Письма', D+'1VFFfHs0hwIZ0tkKKHE3UbRLI21Qvk5yQGJSJoukRGN8/edit'],['План закрытия', D+'1pkItFkEeKT7kcERDMv6u3M4Zvb2WkCd-lU7swA0DJCM/edit']]},
+  {block:'done', state:'done', title:'Бриф этапа 2',
+   what:'Договорённости звонков 21.07 и 23.07, два варианта, вопросы к созвону',
+   why:'Переход к этапу 2',
+   when:'Созвон с учредителями — 27–28.10',
+   where:[['Бриф этапа 2', D+'1X2xda6_EACrKOX3Z8D2QC7RuAV74bNxG5nzbXI1IazA/edit']]},
+  {block:'done', state:'done', title:'Сверка договора и оплаты',
+   what:'Выполнение 4 из 7 позиций договора, получение 80 000 ₽',
+   why:'Основа акта и отчёта',
+   when:'Срез на 18.10',
+   where:[['Карта проекта', D+'1FWzUc_lDEPYbUVbCo2cw9L1h8BoqbQNrtLLv5U_BIrg/edit'],['Договор', F+'1TugY85h2midVGQd8VVA5QBuOQzAs74-z/view'],['Чек НПД', F+'1n5vpxoeK6qtoH3RnoJbJlUtYe_mddwY7/view']]},
+];
+
+const CONTRACT = [ // позиции договора CL-106/2026, п. 4.2
+  {n:'Технический запуск', s:'done', a:15000},{n:'Базовое групповое обучение', s:'partial', a:20000},{n:'Правила работы с ИИ, версия 1.0', s:'done', a:7500},{n:'Проектирование приоритетного процесса', s:'done', a:7500},{n:'Чек-лист проверки', s:'done', a:12500},{n:'Навык-агент: создание и тест', s:'open', a:12500},{n:'Передача материалов и инструкций', s:'open', a:5000}
+];
+const PAID = 80000, WAIT = 18;
+
+const FOLDERS = [
+  {num:'00', name:'Начните здесь', url:P+'1d6wwFuJgaXptflHVsc0lp98-W27zQPdz', files:[
+    ['Карта проекта', D+'1FWzUc_lDEPYbUVbCo2cw9L1h8BoqbQNrtLLv5U_BIrg/edit','doc']]},
+  {num:'01', name:'Договорённости', url:P+'1O-GBQmUsXVXa0PKMgi32pFFi68QvfWfp', files:[
+    ['КП этапа 1', F+'1AOQaY1aP5XJsinCCjGKN1xef7jm-jahN/view','21.07'],
+    ['Договор CL-106 — скан с подписями', F+'1TugY85h2midVGQd8VVA5QBuOQzAs74-z/view','29.07'],
+    ['Договор CL-106 — текстовая версия', F+'1eFnckyqPcIoEWAcPK3k-oi6R8IfxaVB1/view',''],
+    ['План этапа по неделям', F+'18-ZMcV1rhyPok-6lLavpEYJotRzNIIV8/view','24.07'],
+    ['Черновик плана (дубль)', F+'15Zk41uODOan0a6wl9Xk1x3j64Ar_pPjq/view','']]},
+  {num:'02', name:'Финансы', url:P+'1p01G-9xGA1Z9na_P5Lio9XxBUjLkj9z_', files:[
+    ['Счёт № 32000407', F+'1b-GpakIXiB8AhNowB361qCzXkOxcZRLX/view','29.07'],
+    ['Чек НПД, 80 000 ₽', F+'1n5vpxoeK6qtoH3RnoJbJlUtYe_mddwY7/view','29.07'],
+    ['Квитанция подписки, месяц 1', F+'1omZF6wXBmxHPb1eOQNS2rUGJchZ0JqUF/view','21.08'],
+    ['Квитанция подписки, месяц 2', F+'1Y1LqlfHYi3AJCyxa5qOpj13varfOkb8t/view','22.09'],
+    ['Реквизиты заказчика', F+'1cFiQBgMX9EfIEIR2PHIQSk_TLZ9r0m2D/view','']]},
+  {num:'03', name:'Коммуникации', url:P+'1kMvByMwvu2sOz6XGL5bgnS0XOLyUsrB-', files:[
+    ['Звонок 21.07, часть 1', F+'1tdwmArgJ8Q4KY2WqYVwFfMz8Aq7HcLLs/view','03.1'],
+    ['Звонок 21.07, часть 2', F+'1IXHWNJs1IA6FNxZqaa_bBCeFOt_FqUIa/view','03.1'],
+    ['Zoom 23.07 — по спикерам', F+'1Mbhi4miKM1uhAxl2SjUlru18XMPmy3YW/view','03.1'],
+    ['Zoom 23.07 — сырой транскрипт', F+'1zdCNbrrlReGxOQvUwfPGWkOLcUEbJcht/view','03.1'],
+    ['Выгрузка чата Telegram', P+'1XsGDRqjtkcR-Kg5vWMqlbXZhTxAeRk8N','03.2']]},
+  {num:'04', name:'Результаты этапа 1', url:P+'1nPexHkwFaSYlLzavHvCT-CaLZQUZJggU', files:[
+    ['Правила работы с ИИ v1.0', F+'1FqwbPi18VJHNP4iyksczGJOP7U3QH8c8/view','30.09'],
+    ['Чек-лист процесса', F+'1rD3ZdFa_XdribAKmPY65lZ-wUOv2WDE0/view','30.09'],
+    ['Протокол проверки навыка', F+'1SpJidNYwGhXhHpYAXriTxxw1VlbyjnBx/view','30.09'],
+    ['Файл навыка', F+'1BArpQd_d3N-An6Ug9fnhqEahYGTRriO0/view',''],
+    ['Инструкция Gmail и Диск', F+'1OeUs8ibT6N9PJ6a_ms_HNI_wk2XgTELM/view','02.10'],
+    ['Пример презентации NotebookLM', F+'1uT-l3Gepw1lfIBmth4x3-fyeh5R7F6gK/view','24.07']]},
+  {num:'05', name:'Закрытие этапа 1', url:P+'1c_ZwJCFT7HQSvzW9LPuUc0nMLT0Q5prG', files:[
+    ['План закрытия', D+'1pkItFkEeKT7kcERDMv6u3M4Zvb2WkCd-lU7swA0DJCM/edit','черновик'],
+    ['Отчёт об оказанных услугах', D+'1qVASZQ233EccAvt8fPbmJeXrm9_7WWx4xj0puWTIvcQ/edit','черновик'],
+    ['Акт № 1', D+'1LTjJabeLfi9QSJFlfGJc6okmsYWfUzpMF_X0WbrNduk/edit','черновик'],
+    ['Письма клиенту', D+'1VFFfHs0hwIZ0tkKKHE3UbRLI21Qvk5yQGJSJoukRGN8/edit','черновик']]},
+  {num:'06', name:'Этап 2', url:P+'1MES9R5xK3WGBbbyKF1lP6Dc80i0uP4Fk', files:[
+    ['Бриф этапа 2', D+'1X2xda6_EACrKOX3Z8D2QC7RuAV74bNxG5nzbXI1IazA/edit','черновик']]},
+];
+
+
+
+const ST = {open:'открыта', partial:'частично', done:'закрыта'};
+const C = {done:'#a594ff', partial:'#fbbf24', open:'#ff6b7a'};
+const $ = (s) => document.querySelector(s);
+const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
+const rub = (n) => n.toLocaleString('ru-RU').replace(/ /g, ' ') + ' ₽';
+const plural = (n, a, b, c) => { const m = n % 10, h = n % 100; return m === 1 && h !== 11 ? a : m >= 2 && m <= 4 && (h < 12 || h > 14) ? b : c; };
+const open = ITEMS.filter(i => i.block === 'open'), done = ITEMS.filter(i => i.block === 'done');
+$('#n-open').textContent = open.length; $('#n-done').textContent = done.length;
+$('#t-open').textContent = open.length; $('#t-done').textContent = done.length;
+$('#t-paid').textContent = rub(PAID);
+$('#t-wait').append(String(WAIT), Object.assign(el('small'), {textContent: plural(WAIT, 'день', 'дня', 'дней')}));
+const cDone = CONTRACT.filter(c => c.s === 'done').length;
+$('#t-contract').append(String(cDone) + ' ', Object.assign(el('small'), {textContent: 'из ' + CONTRACT.length + ' выполнены'}));
+CONTRACT.forEach(c => { const r = el('div', 'crow ' + c.s); r.append(el('span', null, c.n), el('span', 'sum', rub(c.a)), el('span', 'st', ST[c.s])); $('#t-list').append(r); });
+function card(it) {
+  const c = el('article', 'item glass ' + it.state);
+  const h = el('h3'); h.append(el('span', null, it.title), el('span', 'st', ST[it.state]));
+  const dl = el('dl');
+  const row = (k, n) => { const dd = el('dd'); dd.append(n); dl.append(el('dt', null, k), dd); };
+  row('Что', it.what); row('Почему', it.why); row('Когда', it.when);
+  const ch = el('div', 'chips');
+  it.where.forEach(([l, u]) => { const a = el('a', 'chip', l + ' ↗'); a.href = u; a.target = '_blank'; a.rel = 'noopener'; ch.append(a); });
+  row('Где', ch); c.append(h, dl); return c;
+}
+open.forEach(i => $('#list-open').append(card(i)));
+done.forEach(i => $('#list-done').append(card(i)));
+FOLDERS.forEach((fo) => {
+  const box = el('div', 'folder glass');
+  const h = el('h3'); h.append(el('span', 'num', fo.num));
+  const a = el('a', null, fo.name); a.href = fo.url; a.target = '_blank'; a.rel = 'noopener'; h.append(a);
+  const ul = el('ul', 'files');
+  fo.files.forEach(([t, u, d]) => { const li = el('li'); const l = el('a'); l.href = u; l.target = '_blank'; l.rel = 'noopener'; l.append(t); if (d && d !== 'doc') l.append(el('span', 'd', d)); li.append(l); ul.append(li); });
+  box.append(h, ul); $('#folders').append(box);
+});
+const views = ['home','summary','open','done','folders'];
+function show(v) {
+  if (!views.includes(v)) v = 'home';
+  document.querySelectorAll('.view').forEach(s => s.classList.toggle('on', s.id === 'v-' + v));
+  document.querySelectorAll('.nav').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  if (location.hash.slice(1) !== v) history.replaceState(null, '', '#' + v);
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => show(b.dataset.v)));
+window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script></body></html>
